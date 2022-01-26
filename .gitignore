@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.Python
+*.egg-info
+build/
+dist/
+.pytest_cache
+venv/
+sitemap.xml
+
+# Codecov
+.coverage
+coverage.xml
+
+# Mac
+.DS_Store
+
+# Misc
+tests/
