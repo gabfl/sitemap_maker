@@ -7,8 +7,8 @@ except(IOError, ImportError):
     long_description = open('README.md').read()
 
 setup(
-    name='sitemap_maker',
-    version='1.0',
+    name='sitemap-maker',
+    version='1.0.1',
     description='Python tool to generate sitemap XML files',
     long_description=long_description,
     author='Gabriel Bordeaux',
@@ -18,7 +18,7 @@ setup(
     packages=['sitemap_maker'],
     package_dir={'sitemap_maker': 'src'},
     install_requires=[  # external dependencies
-        'sitecrawl',
+        'sitecrawl==1.0.5',
         'requests',
         'dateparser==1.1.*',
     ],

@@ -35,9 +35,9 @@ pip3 install .
 sitemap_maker --url https://www.weather.gov/ \
     --sitemap output.xml \
     --depth 1 \
-    --verbose \
     --max 5 \
-    --no_pound
+    --no_pound \
+    --verbose
 
 # For help:
 # sitemap_maker --help
