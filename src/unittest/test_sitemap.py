@@ -48,7 +48,7 @@ class Test(unittest.TestCase):
             '<?xml version="1.0" encoding="UTF-8"?>')
         assert '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' in sitemap_content
         assert '<url>' in sitemap_content
-        assert '<loc>https://www.gab.lc</loc>' in sitemap_content
+        assert '<loc>https://www.gab.lc/</loc>' in sitemap_content
         assert '<lastmod>' in sitemap_content
         assert '</lastmod>' in sitemap_content
         assert '</url>' in sitemap_content

@@ -13,20 +13,12 @@ exclude_paths = [
 def crawl_site(url, depth=1, no_pound=False, no_get=False, no_validate_ct=False, max_crawl=0, verbose=False):
     """ USe site crawler to crawl the website """
 
-    crawl.base_url = crawl.truncate_last_slash(url)
+    crawl.base_url = url
     crawl.no_pound = no_pound
     crawl.no_get = no_get
     crawl.no_validate_ct = no_validate_ct
     crawl.max_crawl = max_crawl
     crawl.verbose = verbose
-
-    print('* Crawling:', crawl.base_url)
-    print('* Depth:', depth)
-    print('* Max crawl:', max_crawl)
-    print('* No pound:', no_pound)
-    print('* No get:', no_get)
-    print('* No validate content type:', no_validate_ct)
-    print('* Verbose:', verbose)
 
     crawl.deep_crawl(depth=depth)
 
@@ -34,11 +26,9 @@ def crawl_site(url, depth=1, no_pound=False, no_get=False, no_validate_ct=False,
 def get_last_modified(url):
     """ Get last modified date of a URL """
 
-    header = requests.head(
-        url,
-        headers=crawl.crawling_headers,
-        timeout=crawl.crawling_timeout
-    ).headers
+    r = crawl.load_url_from_cache(url) or crawl.load_url(
+        url, validate_result=False)
+    header = r.headers
 
     if 'Last-Modified' in header:
         dt = dateparser.parse(header['Last-Modified'])
